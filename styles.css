@@ -29,6 +29,17 @@ body {
     color: #333; /* Darker text for readability */
     height: 100vh;
 }
+.icon {
+    filter: brightness(0) invert(1); /* Makes the icon white */
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Adds transition effect */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Scale up slightly on hover */
+    filter: brightness(0.8) invert(1); /* Darken the icon slightly on hover */
+}
 /* Apply the Fonts */
 h1 {
     font-family: 'Convergence', sans-serif; /* Use Convergence font for H1 */
