@@ -117,6 +117,8 @@ a {
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
+    position: relative; /* Ensure it's placed relative to the layout */
+    z-index: 10; /* High z-index to stay on top */
 }
 .hamburger span {
     display: block;
@@ -128,6 +130,11 @@ a {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .content {
+        padding: 3rem 1rem; /* Reduce padding for smaller screens */
+        background-size: contain; /* Contain might be more suitable on smaller screens */
+        background-attachment: scroll; /* Ensure scrolling on mobile */
+    }
     .nav-links {
         display: none;
         flex-direction: column;
