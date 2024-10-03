@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Transparent Navbar with Background</title>
+    <title>Thuang Architect</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="Images/logoonly1.png" type="image/x-icon" />
   </head>
   <body>
     <nav class="navbar">
@@ -13,10 +14,10 @@
         <img src="images/logo-nobgwhite.png" alt="Brand Logo" />
       </div>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="hamburger" onclick="toggleMenu()">
         <span></span>
@@ -25,8 +26,8 @@
       </div>
     </nav>
 
-    <section class="content">
-      <h1>Thuang Architect</h1>
+    <section id="home" class="content">
+      <h1>THUANG ARCHITECT</h1>
       <p>by Valentine Christella.</p>
     </section>
     <!-- about us-->
@@ -41,13 +42,17 @@
           </p>
         </div>
         <div class="about-image">
-          <img src="images/logo-nobg.png" alt="Architecture Design" />
+          <div class="hover14">
+            <figure>
+              <img src="images/logo-nobg.png" alt="Architecture Design" />
+            </figure>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio">
+    <section id="services" class="portfolio">
       <!-- Quote at the top -->
       <div class="quote">
         <p>
@@ -117,7 +122,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer">
+    <footer id="contact" class="footer">
       <div class="footer-content">
         <div class="footer-column">
           <h3>About Us</h3>
@@ -128,17 +133,29 @@
         </div>
         <div class="footer-column">
           <h3>Contact</h3>
-          <p>123 Architect St, Design City</p>
-          <p>Email: info@archfirm.com</p>
-          <p>Phone: +123-456-7890</p>
+          <p>Medan City, Indonesia</p>
+          <p>Email: christella@thuang.com</p>
+          <p>Phone: +62 853 5982 0664</p>
         </div>
         <div class="footer-column">
           <h3>Follow Us</h3>
           <div class="social-icons">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a
+              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
+              ><i class="fa fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
+              ><i class="fa fa-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
+              ><i class="fa fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
+              ><i class="fa fa-linkedin"></i
+            ></a>
           </div>
         </div>
       </div>

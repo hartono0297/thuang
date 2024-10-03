@@ -2,7 +2,16 @@ function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
-
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  
 document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = document.getElementById("portfolioContainer");
     const scrollAmount = 300;
@@ -40,13 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Close modal
     closeModal.addEventListener('click', function () {
-        closeModalModal(modal, modalImage, body);
+        closeModalHandler(modal, modalImage, body);
     });
 
     // Close modal when clicking outside of the image
     modal.addEventListener('click', function (event) {
         if (event.target === modal) {
-            closeModalModal(modal, modalImage, body);
+            closeModalHandler(modal, modalImage, body);
         }
     });
 
@@ -63,12 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Function to close modal
-    function closeModalModal(modal, modalImage, body) {
+    function closeModalHandler(modal, modalImage, body) {
         modal.style.display = "none";
         modalImage.classList.remove('zoom'); // Remove zoom class on close
         modalImage.classList.remove('scrollable'); // Remove scrollable class
         body.classList.remove('modal-open'); // Re-enable background scroll
     }
 });
-
-
