@@ -236,7 +236,7 @@ a {
     }
 
     .about-image img {
-        max-width: 100%;
+        width: 200px;  /* Smaller size for mobile view */
     }
 }
 
@@ -255,7 +255,7 @@ h1, h2, h3, h4 {
     text-align: center;
     padding: 10rem 2rem;
     /*background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'); /* Background Image */
-    background-image: url('Images/bg.jpg');
+    background-image: url('Images/gambar/12.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Fixed background */
@@ -313,14 +313,16 @@ h1, h2, h3, h4 {
     line-height: 1.6;
     color: #666;
     max-width: 800px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .about-image img {
-    max-width: 80%;
-    height: auto;
-    border-radius: 5px;
+    max-width: 100%;  /* Ensures responsiveness */
+    width: 300px;  /* Set a specific width */
+    height: auto;  /* Maintains the aspect ratio */
+    object-fit: contain;  /* Ensures the image fits within the defined width */
 }
+
 
 /* Portfolio Section */
 .portfolio {
