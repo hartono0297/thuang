@@ -133,7 +133,7 @@ a {
     .content {
         padding: 3rem 1rem; /* Reduce padding for smaller screens */
         background-size: contain; /* Contain might be more suitable on smaller screens */
-        background-attachment: scroll; /* Ensure scrolling on mobile */
+        background-position: inherit;        
     }
     .nav-links {
         display: none;
