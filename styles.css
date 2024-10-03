@@ -1,0 +1,536 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* Font-Face for Convergence (H1) */
+@font-face {
+    font-family: 'Convergence';
+    src: url('fonts/convergence-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Font-Face for Engravers Gothic (Paragraphs) */
+@font-face {
+    font-family: 'Engravers Gothic';
+    src: url('fonts/engraversgothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif; /* Professional Font */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Light background for minimalist style */
+    color: #333; /* Darker text for readability */
+    height: 100vh;
+}
+/* Apply the Fonts */
+h1 {
+    font-family: 'Convergence', sans-serif; /* Use Convergence font for H1 */
+}
+
+p {
+    font-family: 'Engravers Gothic', sans-serif; /* Use Engravers Gothic font for paragraphs */
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.logo img {
+    width: 150px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the logo */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /*background-color: rgba(255, 255, 255, 0.1); /* Transparent Navbar */
+    background-color: rgba(174, 140, 104, 0.8); /* Transparent navbar with hex #ae8c68 */
+    backdrop-filter: blur(10px); /* Subtle blur for glass effect */
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Blur line effect */
+    border-bottom: 2px solid #ae8c68; /* Blur line at the bottom */
+    z-index: 1000;
+    color: white;
+}
+.navbar a {
+    color: white; /* White text in navbar for contrast */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+.nav-links li {
+    position: relative;
+}
+.nav-links li a {
+    padding: 0.5rem 1rem;
+    color: white;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+.nav-links li a:hover::before,
+.nav-links li a.active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+.nav-links li a::before {
+    width: 0;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Darker for mobile view */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem 0;
+        text-align: center;
+    }
+    .hamburger {
+        display: flex;
+    }
+
+     /* Portfolio layout changes to vertical on mobile */
+     .portfolio {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Stack quote and portfolio */
+    .portfolio-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Quote takes full width */
+    .quote {
+        width: 100%;
+        margin-bottom: 20px;        
+        font-size: 14px; /* Smaller font size for quote */
+        line-height: 1.4;
+        border-left: none !important; /* Remove border-left on smaller screens */
+    }
+
+    /* Portfolio Container changes to a vertical list */
+    .portfolio-container {
+        flex-direction: column;
+        max-width: 100%;
+        overflow-x: unset; /* Remove horizontal scrolling */
+    }
+
+    .portfolio-item {
+        width: 90%; /* Reduce size of portfolio item */
+        margin-bottom: 15px;
+        flex: unset;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        text-align: center; /* Center the text inside */
+    }
+
+    .portfolio-item p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        font-size: 12px; /* Smaller font size */
+        padding: 8px;
+        margin: 0;
+        text-align: center; /* Center the paragraph text */
+    }
+
+    /* Adjust image size inside portfolio item */
+    .portfolio-item img {
+        width: 100%;
+        height: 150px; /* Smaller height for image */
+        object-fit: cover;
+    }
+    /* Hide scroll buttons on mobile */
+    .scroll-button {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px; /* Reduced gap for mobile */
+    }
+
+    .footer-column {
+        margin-bottom: 30px;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    /*About*/
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
+    }
+
+    .about-image img {
+        max-width: 100%;
+    }
+}
+
+/* Section Styling */
+.section {
+    padding: 50px 20px;
+    background-color: #fff; /* White background for contrast */
+}
+
+h1, h2, h3, h4 {
+    color: #ae8c68; /* Main theme color for headings */
+}
+
+/* Content Styling */
+.content {
+    text-align: center;
+    padding: 10rem 2rem;
+    /*background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'); /* Background Image */
+    background-image: url('images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixed background */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+.content p {
+    font-size: 1.5rem;
+    color: #ddd;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Full-Screen About Us Section */
+.about-us {
+    height: 100vh; /* Full viewport height */
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.about-content h2 {
+    color: #ae8c68;
+    font-size: 2.2rem;
+    font-family: 'Convergence', sans-serif;
+    margin-bottom: 10px;
+}
+
+.about-content p {
+    font-family: 'Engravers Gothic', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Portfolio Section */
+.portfolio {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8; /* Background color for the portfolio section */
+}
+
+/* Quote at the top */
+.quote {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Adjust font size */
+    font-style: italic;
+    color: #ae8c68; /* Main theme color for quotes */
+    padding: 20px; /* Padding for quotes */
+}
+
+/* Scrollable Portfolio Container */
+.portfolio-container {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 20px;    
+    overflow-x: hidden; /* Change this to hidden to remove the scrollbar */
+    scroll-behavior: smooth;
+    gap: 20px;
+    flex: 4; /* Allow the portfolio container to take up 70% space */
+}
+
+.portfolio-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, Opera */
+}
+
+/* Portfolio Items */
+.portfolio-item {
+    flex: 0 0 300px; /* Adjusted size for items */
+    margin: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease;
+    padding-bottom: 10px;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-item h3 {
+    color: #ae8c68; /* Main theme color for portfolio titles */
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.portfolio-item p {
+    padding: 0 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+/* Scroll Button Styles */
+.scroll-button {
+    border: none; /* Remove border */
+    background: transparent; /* Transparent background */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 24px; /* Font size for the arrow */
+    color: #ae8c68; /* Color of the arrow */
+    padding: 10px; /* Padding around the button */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.scroll-button:hover {
+    color: #b59a7b; /* Change color on hover */
+}
+/* Additional styles for left and right buttons */
+.scroll-button.left {
+    margin-right: 10px; /* Space between left button and content */
+}
+
+.scroll-button.right {
+    margin-left: 10px; /* Space between right button and content */
+}
+
+/* Modal styles */
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll; /* Prevent scrolling when modal is open */
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center; /* Center the modal content horizontally */
+    align-items: center; /* Center the modal content vertically */
+    transition: opacity 0.25s ease; /* Smooth transition for fade-in */
+}
+
+/* Center the modal content */
+.modal-content {
+    max-width: 100%;
+    max-height: 80%; /* Set max height for scrolling */
+    transition: transform 0.25s ease; /* Animation for zooming */
+    cursor: zoom-in; /* Indicate zoom capability */
+    position: relative; /* Allow positioning for dragging */
+    overflow: hidden; /* Prevent default overflow */
+}
+
+/* Scrollable when zoomed */
+.modal-content.scrollable {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 90vh; /* Ensure it does not overflow the viewport */
+}
+
+/* Zoom effect */
+.modal-content.zoom {
+    transform: scale(2); /* Scale the image to 2x when zoomed */
+    cursor: zoom-out; /* Change cursor to zoom out when zoomed */
+}
+
+body.modal-open {
+    overflow: hidden; /* Disable scrolling on body when modal is open */
+}
+
+
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #ae8c68; /* Change close button color on hover */
+    cursor: pointer;
+}
+
+
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px; /* Add gap between columns */
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-column p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #f5f5f5; /* Lighter text for footer content */
+}
+
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+    color: #ccc;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
