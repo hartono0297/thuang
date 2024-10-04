@@ -28,6 +28,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
       });
     });
   });
+
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+
+    // Add 'shrink' class when scrolling down more than 50px
+    if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+    } else {
+        navbar.classList.remove('shrink');
+    }
+});
+
   
 document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = document.getElementById("portfolioContainer");

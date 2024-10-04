@@ -65,13 +65,19 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
-    /*background-color: rgba(255, 255, 255, 0.1); /* Transparent Navbar */
-    background-color: rgba(174, 140, 104, 0.8); /* Transparent navbar with hex #ae8c68 */
+    background-color: rgba(174, 140, 104, 0.8); /* 60% opaque */
     backdrop-filter: blur(10px); /* Subtle blur for glass effect */
-    /*border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Blur line effect */
-    border-bottom: 2px solid #ae8c68; /* Blur line at the bottom */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Soft blur line */
     z-index: 1000;
     color: white;
+    transition: all 0.3s ease; /* Smooth transition for shrinking effect */
+}
+
+/* Shrinking effect when scrolling */
+.navbar.shrink {
+    padding: 0.5rem 2rem; /* Reduced padding */
+    background-color: rgba(174, 140, 104, 0.7); /* 60% opaque */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Adjusted border for shrink effect */
 }
 .navbar a {
     color: white; /* White text in navbar for contrast */
