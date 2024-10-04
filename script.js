@@ -59,20 +59,40 @@ document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = document.getElementById("portfolioContainer");
     const scrollAmount = 300;
 
-    // Scroll buttons functionality
-    document.getElementById("scrollLeft").addEventListener("click", function () {
+   // Scroll buttons functionality
+   document.getElementById("scrollLeft").addEventListener("click", function () {
+    const isAtStart = scrollContainer.scrollLeft === 0; // Check if at the start
+    if (isAtStart) {
+        // Scroll to the end if at the start
+        scrollContainer.scrollTo({
+            left: scrollContainer.scrollWidth,
+            behavior: "smooth"
+        });
+    } else {
+        // Scroll left
         scrollContainer.scrollBy({
             left: -scrollAmount,
             behavior: "smooth"
         });
-    });
+    }
+});
 
-    document.getElementById("scrollRight").addEventListener("click", function () {
+document.getElementById("scrollRight").addEventListener("click", function () {
+    const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth; // Check if at the end
+    if (isAtEnd) {
+        // Scroll to the start if at the end
+        scrollContainer.scrollTo({
+            left: 0,
+            behavior: "smooth"
+        });
+    } else {
+        // Scroll right
         scrollContainer.scrollBy({
             left: scrollAmount,
             behavior: "smooth"
         });
-    });
+    }
+});
 
     // Modal functionality
     const modal = document.getElementById("imageModal");
