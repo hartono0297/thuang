@@ -153,7 +153,7 @@ a {
 @media (max-width: 768px) {
     .content {
         padding: 3rem 1rem; /* Reduce padding for smaller screens */
-        background-size: cover; /* Contain might be more suitable on smaller screens */
+        background-size: contain; /* Contain might be more suitable on smaller screens */
         background-position: center !important;      
     }
     .nav-links {
@@ -173,11 +173,11 @@ a {
         transition: all 0.4s ease; /* Smooth transition for opacity, height, and padding */
     }
     /* When menu is open */
-.nav-links.open {
-    opacity: 1;
-    height: 240px; /* Adjust height according to your menu's content */
-    padding: 1rem 0;
-}
+    .nav-links.open {
+        opacity: 1;
+        height: 240px; /* Adjust height according to your menu's content */
+        padding: 1rem 0;
+    }
     .hamburger {
         display: flex;
     }
@@ -518,7 +518,7 @@ body.modal-open {
 .footer {
     font-family: 'Montserrat', sans-serif !important;
     background-color: #333;
-    color: white;
+    color: white;    
     padding: 40px 0;
     position: relative;
 }
