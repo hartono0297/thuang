@@ -1,3 +1,13 @@
+// Smooth scroll for the logo when clicked
+document.querySelector('.logo a').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default anchor behavior
+    const target = document.querySelector(this.getAttribute('href')); // Get the target section
+    target.scrollIntoView({
+        behavior: 'smooth' // Scroll smoothly to the target
+    });
+});
+
+
 function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     const hamburger = document.querySelector('.hamburger');
