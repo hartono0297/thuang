@@ -41,18 +41,31 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
   });
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
-    // Add 'shrink' class when scrolling down more than 50px
-    if (window.scrollY > 50) {
+    const hamburger = document.querySelector('.hamburger'); // Add hamburger for color change on shrink
+    const portfolioSection = document.getElementById('services'); // Ensure this is the correct ID
+    
+    // Get the top of the portfolio section relative to the document
+    const portfolioTop = portfolioSection.offsetTop;
+
+    // Get the current scroll position
+    const scrollPosition = window.scrollY;
+
+    // Add 'shrink' class when the scroll position reaches or passes the portfolio section
+    if (scrollPosition >= portfolioTop - window.innerHeight * 0.1) {
         navbar.classList.add('shrink');
-        navLinks.classList.add('shrink'); // Add class to shrink nav links
+        navLinks.classList.add('shrink');
+        hamburger.classList.add('shrink'); // Apply shrink class to hamburger to change color
     } else {
         navbar.classList.remove('shrink');
-        navLinks.classList.remove('shrink'); // Remove class to restore nav links
+        navLinks.classList.remove('shrink');
+        hamburger.classList.remove('shrink'); // Remove shrink class from hamburger
     }
 });
+
+
 
   
 document.addEventListener("DOMContentLoaded", function () {
