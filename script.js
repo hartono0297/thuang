@@ -1,8 +1,8 @@
 function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     const hamburger = document.querySelector('.hamburger');
-
-    //menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    const navLinks = document.querySelector('.nav-links');
+    
         // Toggle the class for showing the nav links
         menu.classList.toggle('open');
      // Toggle the class for changing the hamburger to an X
@@ -31,12 +31,14 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
   window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
-
+    const navLinks = document.querySelector('.nav-links');
     // Add 'shrink' class when scrolling down more than 50px
     if (window.scrollY > 50) {
         navbar.classList.add('shrink');
+        navLinks.classList.add('shrink'); // Add class to shrink nav links
     } else {
         navbar.classList.remove('shrink');
+        navLinks.classList.remove('shrink'); // Remove class to restore nav links
     }
 });
 

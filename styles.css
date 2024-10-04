@@ -136,7 +136,7 @@ a {
 }
 /* Change hamburger icon to X */
 .hamburger.open span:nth-child(1) {
-    transform: rotate(45deg);
+    transform: rotate(45deg); 
     transform-origin: 5% 100%;
 }
 
@@ -170,13 +170,18 @@ a {
         left: 0;
         padding: 0;
         text-align: center;
-        transition: all 0.4s ease; /* Smooth transition for opacity, height, and padding */
+        transition: height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
     }
     /* When menu is open */
     .nav-links.open {
         opacity: 1;
         height: 240px; /* Adjust height according to your menu's content */
         padding: 1rem 0;
+    }
+    .nav-links.shrink {
+        padding: 1rem 0;
+        height: 240px; /* Adjust this value based on the height when shrunk */
+        top: 74px;
     }
     .hamburger {
         display: flex;
