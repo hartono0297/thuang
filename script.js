@@ -1,7 +1,24 @@
 function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    const hamburger = document.querySelector('.hamburger');
+
+    //menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        // Toggle the class for showing the nav links
+        menu.classList.toggle('open');
+     // Toggle the class for changing the hamburger to an X
+     hamburger.classList.toggle('open');
 }
+// Close the menu when a nav link is clicked
+document.querySelectorAll('.navbar ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        const menu = document.querySelector('.navbar ul');
+        const hamburger = document.querySelector('.hamburger');
+
+        // Remove 'open' class to close the menu and reset the hamburger icon
+        menu.classList.remove('open');
+        hamburger.classList.remove('open');
+    });
+});
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
