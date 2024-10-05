@@ -318,20 +318,11 @@ a {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-device-pixel-ratio: 3) {
-    .content-wrapper {
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        height: 100vh;
-    }
-    
     .content {
-        scroll-snap-align: start;
-        height: 100vh;
-        background-image: url('Images/gambar/12.jpg');
         background-size: cover;
         background-position: center;
+        background-attachment: scroll !important; /* Prevent zoom issues */
     }
-    
 }
 
 
@@ -350,9 +341,9 @@ h1, h2, h3, h4 {
     text-align: center;
     padding: 10rem 2rem;
     /*background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'); /* Background Image */
-    background-image: url('Images/gambar/12.jpg');
+    background-image: url('Images/gambar/4A.jpg  ');
     background-size:cover;
-    background-position: center ;
+    background-position: center center;
     background-attachment: fixed; /* Fixed background */
     min-height: 100vh;
     display: flex;
