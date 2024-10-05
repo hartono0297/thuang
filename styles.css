@@ -166,7 +166,7 @@ a {
     .content {
         padding: 5rem 2rem; /* Reduce padding for smaller screens */
         background-size: contain; /* Contain might be more suitable on smaller screens */
-        background-position: center top !important;      
+        background-position: center !important;      
     }
     .nav-links {
         opacity: 0;
@@ -313,7 +313,7 @@ and (max-device-width: 812px)
 and (-webkit-device-pixel-ratio: 3) {
     .content {
         background-size: cover;
-        background-position: center;
+        background-position: center 0% !important;
         background-attachment: scroll !important; /* Prevent zoom issues */
     }
 }
