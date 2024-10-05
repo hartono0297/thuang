@@ -171,9 +171,9 @@ a {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .content {
-        padding: 3rem 1rem; /* Reduce padding for smaller screens */
+        padding: 5rem 2rem; /* Reduce padding for smaller screens */
         background-size: contain; /* Contain might be more suitable on smaller screens */
-        background-position: center !important;      
+        background-position: center top !important;      
     }
     .nav-links {
         opacity: 0;
@@ -306,6 +306,26 @@ a {
     }
 }
 
+@media screen and (min-width: 1440px) {
+    .content {
+        background-size: cover; /* Switch to cover for larger monitors */
+        background-position: center; /* Ensure background is centered */
+        padding: 5rem 2rem; /* Adjust padding for better spacing */
+    }
+}
+
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-device-pixel-ratio: 3) {
+    .content {
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll; /* Prevent zoom issues */
+    }
+}
+
+
 /* Section Styling */
 .section {
     padding: 50px 20px;
@@ -323,13 +343,16 @@ h1, h2, h3, h4 {
     /*background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'); /* Background Image */
     background-image: url('Images/gambar/12.jpg');
     background-size:cover;
-    background-position: center -350px;
+    background-position: center ;
     background-attachment: fixed; /* Fixed background */
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-clip: border-box; /* Ensures background is clipped to the element */
+    box-sizing: border-box; /* Ensure padding/margins are accounted for */
 }
 .content h1 {
     font-size: 3rem;
