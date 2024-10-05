@@ -9,7 +9,6 @@ document.querySelector('.logo a').addEventListener('click', function(e) {
 });
 
 
-
 function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     const hamburger = document.querySelector('.hamburger');

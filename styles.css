@@ -318,11 +318,20 @@ a {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-device-pixel-ratio: 3) {
+    .content-wrapper {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: 100vh;
+    }
+    
     .content {
+        scroll-snap-align: start;
+        height: 100vh;
+        background-image: url('Images/gambar/12.jpg');
         background-size: cover;
         background-position: center;
-        background-attachment: scroll !important; /* Prevent zoom issues */
     }
+    
 }
 
 
@@ -353,7 +362,8 @@ h1, h2, h3, h4 {
     background-repeat: no-repeat; /* Prevents repeating */
     background-clip: border-box; /* Ensures background is clipped to the element */
     box-sizing: border-box; /* Ensure padding/margins are accounted for */
-}
+} 
+
 .content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
