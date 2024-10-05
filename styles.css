@@ -321,7 +321,7 @@ and (-webkit-device-pixel-ratio: 3) {
     .content {
         background-size: cover;
         background-position: center;
-        background-attachment: scroll; /* Prevent zoom issues */
+        background-attachment: scroll !important; /* Prevent zoom issues */
     }
 }
 
