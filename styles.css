@@ -50,10 +50,11 @@ a {
     color: inherit;
 }
 .logo img {
-    width: 150px; /* Adjust as needed */
+    width: 120px; /* Adjust as needed */
     height: auto; /* Maintain aspect ratio */
     display: block;
     margin: 0 auto; /* Center the logo */
+    /*filter: drop-shadow(2px 4px 6px rgba(255, 255, 255, 0.983)); /* Offset and shadow size */
 }
 
 /* Navbar Styles */
@@ -63,9 +64,9 @@ a {
     align-items: center;
     padding: 1rem 2rem;
     position: fixed;
-    top: 0;
+    top: 10px;
     width: 100%;
-    backdrop-filter: blur(10px); /* Subtle blur for glass effect */
+    /*backdrop-filter: blur(10px); /* Subtle blur for glass effect */
     z-index: 1000;
     color: white;
     transition: all 0.3s ease; /* Smooth transition for shrinking effect */
@@ -84,7 +85,7 @@ a {
 
 /* Change logo when navbar is shrunk */
 .navbar.shrink .logo img {
-    content: url('Images/Logo/logo-nobg.png'); /* Use a different logo for better visibility */
+    content: url('Images/Logo/Logo\ Export-23.png'); /* Use a different logo for better visibility */
     max-height: 50px; /* Adjust the logo size as needed */
 }
 /* Removed underline styles */
@@ -93,6 +94,7 @@ a {
 }
 .navbar a {
     color: white; /* White text in navbar for contrast */
+    font-size: small;
 }
 
 .logo {
@@ -199,14 +201,13 @@ a {
     .navbar.shrink {
         padding: 0.5rem 2rem; /* Reduced padding */
         /*background-color: rgba(174, 140, 104, 0.7); /* Example of a translucent background */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Adjusted border for shrink effect */
+        /*border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Adjusted border for shrink effect */
     }
     
     /* Change color of nav links when navbar is shrunk */
     .navbar.shrink .nav-links a {
         color: white; /* Darker color for visibility */        
     }
-
     .hamburger {
         display: flex;
     }
@@ -433,10 +434,22 @@ h1, h2, h3, h4 {
     display: flex;
     flex-wrap: nowrap;
     padding: 20px;    
-    overflow-x: hidden; /* Change this to hidden to remove the scrollbar */
+    overflow: hidden; /* Change this to hidden to remove the scrollbar */
     scroll-behavior: smooth;
-    gap: 20px;
+    gap: 10px;
     flex: 4; /* Allow the portfolio container to take up 70% space */
+    cursor: grab;
+    transform: translateZ(0); /* Enable hardware acceleration */
+}
+
+.portfolio-container-inner {
+    display: flex; /* Keep the items in a row */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    user-select: none; /* -- Prevent image highlighting -- */
+}
+
+.portfolio-container.active {
+    cursor: grabbing; /* Change cursor when dragging */
 }
 
 .portfolio-container::-webkit-scrollbar {
@@ -451,6 +464,7 @@ h1, h2, h3, h4 {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: white;
+    will-change: transform; /* Hint to the browser about potential changes */
     transition: transform 0.3s ease;
     padding-bottom: 10px;
 }
@@ -546,8 +560,6 @@ body.modal-open {
     overflow: hidden; /* Disable scrolling on body when modal is open */
 }
 
-
-
 .close {
     position: absolute;
     top: 20px;
@@ -563,8 +575,6 @@ body.modal-open {
     color: #ae8c68; /* Change close button color on hover */
     cursor: pointer;
 }
-
-
 
 /* Footer Section */
 .footer {
