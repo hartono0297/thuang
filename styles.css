@@ -231,9 +231,13 @@ a {
         line-height: 1.4;
         border-left: none !important; /* Remove border-left on smaller screens */
     }
-
+    .portfolio-container{
+        flex-direction: column;
+        max-width: 100%;
+        overflow-x: unset; /* Remove horizontal scrolling */
+    }
     /* Portfolio Container changes to a vertical list */
-    .portfolio-container {
+    .portfolio-container-inner {
         flex-direction: column;
         max-width: 100%;
         overflow-x: unset; /* Remove horizontal scrolling */

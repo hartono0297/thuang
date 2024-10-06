@@ -161,18 +161,26 @@ const track = document.getElementById("portfolioContainerInner");
 // Set initial percentage if it's not set in HTML
 if (!track.dataset.percentage) {
     track.dataset.percentage = "0";
-  }
+}
+
+// Function to check if the device is mobile
+const isMobile = () => window.innerWidth < 768;
 
 window.onmousedown = (e) => {
+  // Disable on mobile view
+  if (isMobile()) return;
+  
   track.dataset.mouseDownAt = e.clientX;
 };
+
 window.onmouseup = () => {
   track.dataset.mouseDownAt = "0";  
   track.dataset.prevPercentage = track.dataset.percentage || "0";
 }
 
 window.onmousemove = e => {
-  if(track.dataset.mouseDownAt === "0") return;
+  // Disable on mobile view
+  if (isMobile() || track.dataset.mouseDownAt === "0") return;
   
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
         maxDelta = window.innerWidth / 2;
@@ -181,7 +189,7 @@ window.onmousemove = e => {
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
         nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
   
-    // Log the values to the console for debugging
+  // Log the values to the console for debugging
   console.log("Mouse Down At:", track.dataset.mouseDownAt);
   console.log("Prev Percentage:", track.dataset.prevPercentage);
   console.log("Next Percentage Unconstrained:", nextPercentageUnconstrained);
@@ -199,3 +207,4 @@ window.onmousemove = e => {
     }, { duration: 1200, fill: "forwards" });
   }
 }
+
