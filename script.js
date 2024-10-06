@@ -8,7 +8,7 @@ document.querySelector('.logo a').addEventListener('click', function(e) {
     });
 });
 
-
+//NAVBAR
 function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     const hamburger = document.querySelector('.hamburger');
@@ -64,12 +64,12 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     }
 });
 
+//END NAVBAR
 
-
-  
+// Button left and right for carousel 
 document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = document.getElementById("portfolioContainer");
-    const scrollAmount = 300;
+    const scrollAmount = 1500;
 
    // Scroll buttons functionality
    document.getElementById("scrollLeft").addEventListener("click", function () {
@@ -87,8 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             behavior: "smooth"
         });
     }
-});
-
+})
 document.getElementById("scrollRight").addEventListener("click", function () {
     const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth; // Check if at the end
     if (isAtEnd) {
@@ -106,47 +105,41 @@ document.getElementById("scrollRight").addEventListener("click", function () {
     }
 });
 
-    // Modal functionality
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    const closeModal = document.getElementById("closeModal");
-    const body = document.body;
-
-    // Open modal on image click
-    document.querySelectorAll('.portfolio-item').forEach(item => {
-        item.addEventListener('click', function () {
-            const largeImgUrl = this.dataset.largeImg;
-            modalImage.src = largeImgUrl;
-            modal.style.display = "flex"; // Use flex to center the modal
-            body.classList.add('modal-open'); // Disable background scroll
-        });
-    });
-
-    // Close modal
-    closeModal.addEventListener('click', function () {
-        closeModalHandler(modal, modalImage, body);
-    });
-
-    // Close modal when clicking outside of the image
-    modal.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            closeModalHandler(modal, modalImage, body);
-        }
-    });
-
-    // Zoom functionality
-    modalImage.addEventListener('click', function () {
-        this.classList.toggle('zoom'); // Toggle zoom class
-        this.classList.toggle('scrollable'); // Enable scrolling when zoomed
-
-        // Reset image position on zoom
-        if (this.classList.contains('zoom')) {
-            this.style.transformOrigin = 'center center'; // Ensure the zoom is centered
-            this.scrollIntoView({ behavior: "smooth", block: "center" }); // Center the zoomed image in the modal
-        }
-    });
-
-    // Function to close modal
+   // Modal functionality
+   const modal = document.getElementById("imageModal");
+   const modalImage = document.getElementById("modalImage");
+   const closeModal = document.getElementById("closeModal");
+   const body = document.body
+   // Open modal on image click
+   document.querySelectorAll('.portfolio-item').forEach(item => {
+       item.addEventListener('click', function () {
+           const largeImgUrl = this.dataset.largeImg;
+           modalImage.src = largeImgUrl;
+           modal.style.display = "flex"; // Use flex to center the modal
+           body.classList.add('modal-open'); // Disable background scroll
+       });
+   })
+   // Close modal
+   closeModal.addEventListener('click', function () {
+       closeModalHandler(modal, modalImage, body);
+   })
+   // Close modal when clicking outside of the image
+   modal.addEventListener('click', function (event) {
+       if (event.target === modal) {
+           closeModalHandler(modal, modalImage, body);
+       }
+   })
+   // Zoom functionality
+   modalImage.addEventListener('click', function () {
+       this.classList.toggle('zoom'); // Toggle zoom class
+       this.classList.toggle('scrollable'); // Enable scrolling when zoome
+       // Reset image position on zoom
+       if (this.classList.contains('zoom')) {
+           this.style.transformOrigin = 'center center'; // Ensure the zoom is centered
+           this.scrollIntoView({ behavior: "smooth", block: "center" }); // Center the zoomed image in the modal
+       }
+   })
+  // Function to close modal
     function closeModalHandler(modal, modalImage, body) {
         modal.style.display = "none";
         modalImage.classList.remove('zoom'); // Remove zoom class on close
@@ -154,7 +147,7 @@ document.getElementById("scrollRight").addEventListener("click", function () {
         body.classList.remove('modal-open'); // Re-enable background scroll
     }
 });
-
+// END Button left and right for carousel 
 
 
 
@@ -189,10 +182,10 @@ window.onmousemove = e => {
   const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
 
   // Log values for debugging
-  console.log("Mouse Down At:", track.dataset.mouseDownAt);
-  console.log("Prev Percentage:", track.dataset.prevPercentage);
-  console.log("Next Percentage Unconstrained:", nextPercentageUnconstrained);
-  console.log("Next Percentage:", nextPercentage);
+  //console.log("Mouse Down At:", track.dataset.mouseDownAt);
+  //console.log("Prev Percentage:", track.dataset.prevPercentage);
+  //console.log("Next Percentage Unconstrained:", nextPercentageUnconstrained);
+  //console.log("Next Percentage:", nextPercentage);
 
   track.dataset.percentage = nextPercentage;
 
@@ -231,14 +224,10 @@ window.addEventListener('touchmove', (e) => {
   track.dataset.percentage = nextPercentage;
 
   track.animate({
-    transform: `translate(${nextPercentage}%, -0%)`
+    transform: `translate(${nextPercentage}%, -50%)`
   }, { duration: 1200, fill: "forwards" });
 
-  for(const image of track.getElementsByClassName("portfolio-item")) {
-    image.animate({
-      objectPosition: `${100 + nextPercentage}% center`
-    }, { duration: 1200, fill: "forwards" });
-  }
+
 });
 
 

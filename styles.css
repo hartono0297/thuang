@@ -234,6 +234,7 @@ a {
     .portfolio-container{
         flex-direction: column;
         max-width: 100%;
+        overflow: scroll !important;
         overflow-x: unset; /* Remove horizontal scrolling */
     }
     /* Portfolio Container changes to a vertical list */
