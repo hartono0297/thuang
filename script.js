@@ -158,12 +158,17 @@ document.getElementById("scrollRight").addEventListener("click", function () {
 
 const track = document.getElementById("portfolioContainerInner");
 
+// Set initial percentage if it's not set in HTML
+if (!track.dataset.percentage) {
+    track.dataset.percentage = "0";
+  }
+
 window.onmousedown = (e) => {
   track.dataset.mouseDownAt = e.clientX;
 };
 window.onmouseup = () => {
   track.dataset.mouseDownAt = "0";  
-  track.dataset.prevPercentage = track.dataset.percentage;
+  track.dataset.prevPercentage = track.dataset.percentage || "0";
 }
 
 window.onmousemove = e => {
@@ -176,6 +181,12 @@ window.onmousemove = e => {
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
         nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
   
+    // Log the values to the console for debugging
+  console.log("Mouse Down At:", track.dataset.mouseDownAt);
+  console.log("Prev Percentage:", track.dataset.prevPercentage);
+  console.log("Next Percentage Unconstrained:", nextPercentageUnconstrained);
+  console.log("Next Percentage:", nextPercentage);
+
   track.dataset.percentage = nextPercentage;
   
   track.animate({
