@@ -85,7 +85,7 @@ a {
 
 /* Change logo when navbar is shrunk */
 .navbar.shrink .logo img {
-    content: url('Images/Logo/Logo\ Export-23.png'); /* Use a different logo for better visibility */
+    content: url('Images/Logo/Logo23.png'); /* Use a different logo for better visibility */
     max-height: 50px; /* Adjust the logo size as needed */
 }
 /* Removed underline styles */
