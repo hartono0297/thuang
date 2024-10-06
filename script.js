@@ -156,6 +156,9 @@ document.getElementById("scrollRight").addEventListener("click", function () {
 });
 
 
+
+
+
 const track = document.getElementById("portfolioContainerInner");
 
 // Set initial percentage if it's not set in HTML
@@ -163,48 +166,80 @@ if (!track.dataset.percentage) {
     track.dataset.percentage = "0";
 }
 
-// Function to check if the device is mobile
-const isMobile = () => window.innerWidth < 768;
-
+// Track mouse down position for desktop
 window.onmousedown = (e) => {
-  // Disable on mobile view
-  if (isMobile()) return;
-  
+  if (window.innerWidth < 768) return; // Disable on mobile
   track.dataset.mouseDownAt = e.clientX;
 };
 
 window.onmouseup = () => {
+  if (window.innerWidth < 768) return; // Disable on mobile
   track.dataset.mouseDownAt = "0";  
   track.dataset.prevPercentage = track.dataset.percentage || "0";
-}
+};
 
 window.onmousemove = e => {
-  // Disable on mobile view
-  if (isMobile() || track.dataset.mouseDownAt === "0") return;
-  
-  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
-  
-  const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-  
-  // Log the values to the console for debugging
+  if (window.innerWidth < 768 || track.dataset.mouseDownAt === "0") return; // Disable on mobile
+
+  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
+  const maxDelta = window.innerWidth / 2;
+
+  const percentage = (mouseDelta / maxDelta) * -100;
+  const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
+  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+  // Log values for debugging
   console.log("Mouse Down At:", track.dataset.mouseDownAt);
   console.log("Prev Percentage:", track.dataset.prevPercentage);
   console.log("Next Percentage Unconstrained:", nextPercentageUnconstrained);
   console.log("Next Percentage:", nextPercentage);
 
   track.dataset.percentage = nextPercentage;
-  
+
   track.animate({
     transform: `translate(${nextPercentage}%, -0%)`
   }, { duration: 1200, fill: "forwards" });
-  
+
   for(const image of track.getElementsByClassName("portfolio-item")) {
     image.animate({
       objectPosition: `${100 + nextPercentage}% center`
     }, { duration: 1200, fill: "forwards" });
   }
-}
+};
+
+// Touch event handling for mobile
+let touchStartX = 0;
+
+window.addEventListener('touchstart', (e) => {
+  if (window.innerWidth >= 768) return; // Only handle touch on mobile
+
+  touchStartX = e.touches[0].clientX;
+  track.dataset.prevPercentage = track.dataset.percentage || "0"; // Store previous percentage
+});
+
+window.addEventListener('touchmove', (e) => {
+  if (window.innerWidth >= 768) return; // Only handle touch on mobile
+
+  const touchDelta = touchStartX - e.touches[0].clientX;
+  const maxDelta = window.innerWidth / 2;
+
+  const percentage = (touchDelta / maxDelta) * -100;
+  const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
+  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+  // Update dataset percentage
+  track.dataset.percentage = nextPercentage;
+
+  track.animate({
+    transform: `translate(${nextPercentage}%, -0%)`
+  }, { duration: 1200, fill: "forwards" });
+
+  for(const image of track.getElementsByClassName("portfolio-item")) {
+    image.animate({
+      objectPosition: `${100 + nextPercentage}% center`
+    }, { duration: 1200, fill: "forwards" });
+  }
+});
+
+
 
