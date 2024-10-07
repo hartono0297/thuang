@@ -256,7 +256,7 @@ a {
     }
 
     .portfolio-item {
-        width: 80%; /* Reduce size of portfolio item */
+        width: 100%; /* Reduce size of portfolio item */
         margin-bottom: 15px;
         flex: unset;
         display: flex;
