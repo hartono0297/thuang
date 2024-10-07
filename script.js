@@ -7,12 +7,10 @@ document.querySelector('.logo a').addEventListener('click', function(e) {
         block: 'start', // Aligns the top of the target element with the top of the visible area
     });
 });
-
 //NAVBAR
 function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
     
         // Toggle the class for showing the nav links
         menu.classList.toggle('open');
@@ -40,18 +38,20 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
   });
 
+  
   window.addEventListener('scroll', function () {
+    console.log("Scrolling..."); // Check if this logs on scroll
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger'); // Add hamburger for color change on shrink
-    const portfolioSection = document.getElementById('services'); // Ensure this is the correct ID
-    
+    const portfolioSection = document.getElementById('services'); // Ensure this is the correct ID    
+    console.log(navbar, navLinks, hamburger); // Ensure these are not null or undefined
+
     // Get the top of the portfolio section relative to the document
     const portfolioTop = portfolioSection.offsetTop;
 
     // Get the current scroll position
-    const scrollPosition = window.scrollY;
-
+    const scrollPosition = window.scrollY;    
     // Add 'shrink' class when the scroll position reaches or passes the portfolio section
     if (scrollPosition >= portfolioTop - window.innerHeight * 0.1) {
         navbar.classList.add('shrink');
@@ -200,35 +200,35 @@ window.onmousemove = e => {
   }
 };
 
-// Touch event handling for mobile
-let touchStartX = 0;
-
-window.addEventListener('touchstart', (e) => {
-  if (window.innerWidth >= 768) return; // Only handle touch on mobile
-
-  touchStartX = e.touches[0].clientX;
-  track.dataset.prevPercentage = track.dataset.percentage || "0"; // Store previous percentage
-});
-
-window.addEventListener('touchmove', (e) => {
-  if (window.innerWidth >= 768) return; // Only handle touch on mobile
-
-  const touchDelta = touchStartX - e.touches[0].clientX;
-  const maxDelta = window.innerWidth / 2;
-
-  const percentage = (touchDelta / maxDelta) * -100;
-  const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
-  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-
-  // Update dataset percentage
-  track.dataset.percentage = nextPercentage;
-
-  track.animate({
-    transform: `translate(${nextPercentage}%, -50%)`
-  }, { duration: 1200, fill: "forwards" });
-
-
-});
+//// Touch event handling for mobile
+//let touchStartX = 0;
+//
+//window.addEventListener('touchstart', (e) => {
+//  if (window.innerWidth >= 768) return; // Only handle touch on mobile
+//
+//  touchStartX = e.touches[0].clientX;
+//  track.dataset.prevPercentage = track.dataset.percentage || "0"; // Store previous percentage
+//});
+//
+//window.addEventListener('touchmove', (e) => {
+//  if (window.innerWidth >= 768) return; // Only handle touch on mobile
+//
+//  const touchDelta = touchStartX - e.touches[0].clientX;
+//  const maxDelta = window.innerWidth / 2;
+//
+//  const percentage = (touchDelta / maxDelta) * -100;
+//  const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
+//  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+//
+//  // Update dataset percentage
+//  track.dataset.percentage = nextPercentage;
+//
+//  track.animate({
+//    transform: `translate(${nextPercentage}%, -50%)`
+//  }, { duration: 1200, fill: "forwards" });
+//
+//
+//});
 
 
 
