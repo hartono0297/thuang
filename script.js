@@ -38,14 +38,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
   });
 
-  
   window.addEventListener('scroll', function () {
-    console.log("Scrolling..."); // Check if this logs on scroll
+   
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger'); // Add hamburger for color change on shrink
     const portfolioSection = document.getElementById('services'); // Ensure this is the correct ID    
-    console.log(navbar, navLinks, hamburger); // Ensure these are not null or undefined
+  
 
     // Get the top of the portfolio section relative to the document
     const portfolioTop = portfolioSection.offsetTop;
