@@ -200,35 +200,35 @@ window.onmousemove = e => {
   }
 };
 
-// Touch event handling for mobile
-let touchStartX = 0;
-
-window.addEventListener('touchstart', (e) => {
-  if (window.innerWidth >= 768) return; // Only handle touch on mobile
-
-  touchStartX = e.touches[0].clientX;
-  track.dataset.prevPercentage = track.dataset.percentage || "0"; // Store previous percentage
-});
-
-window.addEventListener('touchmove', (e) => {
-  if (window.innerWidth >= 768) return; // Only handle touch on mobile
-
-  const touchDelta = touchStartX - e.touches[0].clientX;
-  const maxDelta = window.innerWidth / 2;
-
-  const percentage = (touchDelta / maxDelta) * -100;
-  const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
-  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-
-  // Update dataset percentage
-  track.dataset.percentage = nextPercentage;
-
-  track.animate({
-    transform: `translate(${nextPercentage}%, -50%)`
-  }, { duration: 1200, fill: "forwards" });
-
-
-});
+//// Touch event handling for mobile
+//let touchStartX = 0;
+//
+//window.addEventListener('touchstart', (e) => {
+//  if (window.innerWidth >= 768) return; // Only handle touch on mobile
+//
+//  touchStartX = e.touches[0].clientX;
+//  track.dataset.prevPercentage = track.dataset.percentage || "0"; // Store previous percentage
+//});
+//
+//window.addEventListener('touchmove', (e) => {
+//  if (window.innerWidth >= 768) return; // Only handle touch on mobile
+//
+//  const touchDelta = touchStartX - e.touches[0].clientX;
+//  const maxDelta = window.innerWidth / 2;
+//
+//  const percentage = (touchDelta / maxDelta) * -100;
+//  const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
+//  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+//
+//  // Update dataset percentage
+//  track.dataset.percentage = nextPercentage;
+//
+//  track.animate({
+//    transform: `translate(${nextPercentage}%, -50%)`
+//  }, { duration: 1200, fill: "forwards" });
+//
+//
+//});
 
 
 
