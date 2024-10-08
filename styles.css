@@ -248,7 +248,7 @@ a {
         overflow-x: unset; /* Remove horizontal scrolling */
         align-items: center; /* Center the portfolio items horizontally */
         justify-content: center; /* Optional: If you want to center them vertically */
-        padding: 10%;
+       
     }
 
     .portfolio-item {
@@ -329,6 +329,10 @@ and (-webkit-device-pixel-ratio: 3) {
         background-position: center 0% !important;
         background-attachment: scroll !important; /* Prevent zoom issues */
     }
+    .portfolio-item p {
+        font-size: 10px !important; /* Smaller font size */
+    }
+    
 }
 
 
