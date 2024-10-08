@@ -248,6 +248,7 @@ a {
         overflow-x: unset; /* Remove horizontal scrolling */
         align-items: center; /* Center the portfolio items horizontally */
         justify-content: center; /* Optional: If you want to center them vertically */
+        padding: 10%;
     }
 
     .portfolio-item {
@@ -311,24 +312,24 @@ a {
     }
 }
 
-/*@media screen and (min-width: 1440px) {
-/*    .content {
-/*        background-size: cover; /* Switch to cover for larger monitors */
-/*        background-position: center; /* Ensure background is centered */
-/*        padding: 5rem 2rem; /* Adjust padding for better spacing */
-/*    }
-/*}
-/*
-/*@media only screen 
-/*and (min-device-width: 375px) 
-/*and (max-device-width: 812px) 
-/*and (-webkit-device-pixel-ratio: 3) {
-/*    .content {
-/*        background-size: cover;
-/*        background-position: center 0% !important;
-/*        background-attachment: scroll !important; /* Prevent zoom issues */
-/*    }
-/*}
+@media screen and (min-width: 1440px) {
+    .content {
+        background-size: cover; /* Switch to cover for larger monitors */
+        background-position: center; /* Ensure background is centered */
+        padding: 5rem 2rem; /* Adjust padding for better spacing */
+    }
+}
+
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-device-pixel-ratio: 3) {
+    .content {
+        background-size: cover;
+        background-position: center 0% !important;
+        background-attachment: scroll !important; /* Prevent zoom issues */
+    }
+}
 
 
 /* Section Styling */
