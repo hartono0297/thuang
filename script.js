@@ -104,51 +104,139 @@ document.getElementById("scrollRight").addEventListener("click", function () {
     }
 });
 
-   // Modal functionality
-   const modal = document.getElementById("imageModal");
-   const modalImage = document.getElementById("modalImage");
-   const closeModal = document.getElementById("closeModal");
-   const body = document.body
-   // Open modal on image click
-   document.querySelectorAll('.portfolio-item').forEach(item => {
-       item.addEventListener('click', function () {
-           const largeImgUrl = this.dataset.largeImg;
-           modalImage.src = largeImgUrl;
-           modal.style.display = "flex"; // Use flex to center the modal
-           body.classList.add('modal-open'); // Disable background scroll
-       });
-   })
-   // Close modal
-   closeModal.addEventListener('click', function () {
-       closeModalHandler(modal, modalImage, body);
-   })
-   // Close modal when clicking outside of the image
-   modal.addEventListener('click', function (event) {
-       if (event.target === modal) {
-           closeModalHandler(modal, modalImage, body);
-       }
-   })
-   // Zoom functionality
-   modalImage.addEventListener('click', function () {
-       this.classList.toggle('zoom'); // Toggle zoom class
-       this.classList.toggle('scrollable'); // Enable scrolling when zoome
-       // Reset image position on zoom
-       if (this.classList.contains('zoom')) {
-           this.style.transformOrigin = 'center center'; // Ensure the zoom is centered
-           this.scrollIntoView({ behavior: "smooth", block: "center" }); // Center the zoomed image in the modal
-       }
-   })
-  // Function to close modal
-    function closeModalHandler(modal, modalImage, body) {
-        modal.style.display = "none";
-        modalImage.classList.remove('zoom'); // Remove zoom class on close
-        modalImage.classList.remove('scrollable'); // Remove scrollable class
-        body.classList.remove('modal-open'); // Re-enable background scroll
-    }
+   //// Modal functionality
+   //const modal = document.getElementById("imageModal");
+   //const modalImage = document.getElementById("modalImage");
+   //const closeModal = document.getElementById("closeModal");
+   //const body = document.body
+   //// Open modal on image click
+   //document.querySelectorAll('.portfolio-item').forEach(item => {
+   //    item.addEventListener('click', function () {
+   //        const largeImgUrl = this.dataset.largeImg;
+   //        modalImage.src = largeImgUrl;
+   //        modal.style.display = "flex"; // Use flex to center the modal
+   //        body.classList.add('modal-open'); // Disable background scroll
+   //    });
+   //})
+   //// Close modal
+   //closeModal.addEventListener('click', function () {
+   //    closeModalHandler(modal, modalImage, body);
+   //})
+   //// Close modal when clicking outside of the image
+   //modal.addEventListener('click', function (event) {
+   //    if (event.target === modal) {
+   //        closeModalHandler(modal, modalImage, body);
+   //    }
+   //})
+   //// Zoom functionality
+   //modalImage.addEventListener('click', function () {
+   //    this.classList.toggle('zoom'); // Toggle zoom class
+   //    this.classList.toggle('scrollable'); // Enable scrolling when zoome
+   //    // Reset image position on zoom
+   //    if (this.classList.contains('zoom')) {
+   //        this.style.transformOrigin = 'center center'; // Ensure the zoom is centered
+   //        this.scrollIntoView({ behavior: "smooth", block: "center" }); // Center the zoomed image in the modal
+   //    }
+   //})
+  //// Function to close modal
+   // function closeModalHandler(modal, modalImage, body) {
+   //     modal.style.display = "none";
+   //     modalImage.classList.remove('zoom'); // Remove zoom class on close
+   //     modalImage.classList.remove('scrollable'); // Remove scrollable class
+   //     body.classList.remove('modal-open'); // Re-enable background scroll
+   // }
+
+  
+
 });
 // END Button left and right for carousel 
 
+ // Open modal and show gallery when image is clicked
+ const carouselItems = document.querySelectorAll('.carousel-item');
+ const modal = document.getElementById('image-modal');
+ const closeBtn = document.querySelector('.close');
+ const modalGallery = document.getElementById('modal-gallery');
+ const zoomedModal = document.getElementById('zoomed-modal');
+ const zoomedImage = document.getElementById('zoomed-image');
+ 
+ // Image data for modal galleries
+ const galleries = {
+     1: ["Images/gambar/img1/img1.1.jpg", "Images/gambar/img1/img1.2.jpg", "Images/gambar/img1/img1.3.jpg", "Images/gambar/img1/img1.4.jpg", "Images/gambar/img1/img1.5.jpg", "Images/gambar/img1/img1.6.jpg"],
+     2: ["images/img2.1.jpg", "images/img2.2.jpg", "images/img2.3.jpg", "images/img2.4.jpg", "images/img2.5.jpg", "images/img2.6.jpg"],
+     3: ["images/img3.1.jpg", "images/img3.2.jpg", "images/img3.3.jpg", "images/img3.4.jpg", "images/img3.5.jpg", "images/img3.6.jpg"]
+ };
+ 
+ // Open modal and show gallery when image is clicked
+ carouselItems.forEach(item => {
+     item.addEventListener('click', function() {
+         const id = this.getAttribute('data-id');
+         showGallery(id);
+     });
+ });
+ 
+ function showGallery(id) {
+     // Clear the current gallery
+     modalGallery.innerHTML = '';
+     
+     // Get the gallery images for the clicked image
+     const images = galleries[id];
+     
+     images.forEach(imgSrc => {
+         const imgElement = document.createElement('img');
+         imgElement.src = imgSrc;
+         imgElement.alt = 'Gallery Image';
+         modalGallery.appendChild(imgElement);
+         
+         // Add click event to zoom in
+         imgElement.addEventListener('click', function() {
+             zoomImage(imgElement.src);
+         });
+     });
+ 
+     // Show the modal
+     modal.style.display = 'flex';
+ }
+ 
+ // Zoom functionality when an image is clicked
+// Function to zoom in the image and show the modal
+// Hide the zoomed modal on page load
+window.onload = function() {
+    const zoomedModal = document.getElementById('zoomed-modal');
+    zoomedModal.style.display = 'none';  // Ensure modal is hidden when the page loads
+}
 
+// Function to zoom in the image and show the modal
+function zoomImage(src) {
+    const zoomedImage = document.getElementById('zoomed-image');
+    zoomedImage.src = src;
+    
+    // Display the zoomed image modal
+    const zoomedModal = document.getElementById('zoomed-modal');
+    zoomedModal.style.display = 'flex';  // Show the modal when an image is clicked
+}
+
+// Close the zoomed image modal when clicked
+document.getElementById('zoomed-modal').addEventListener('click', function() {
+    this.style.display = 'none';  // Hide the modal when clicked
+});
+
+
+ // Close the zoomed modal when clicked
+ zoomedModal.addEventListener('click', () => {
+     zoomedModal.style.display = 'none';
+ });
+ 
+ // Close the modal
+ closeBtn.addEventListener('click', () => {
+     modal.style.display = 'none';
+ });
+ 
+ // Close the modal if clicked outside of the content
+ window.addEventListener('click', (event) => {
+     if (event.target === modal) {
+         modal.style.display = 'none';
+     }
+ });
 
 
 const track = document.getElementById("portfolioContainerInner");
@@ -178,7 +266,7 @@ window.onmousemove = e => {
 
   const percentage = (mouseDelta / maxDelta) * -100;
   const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
-  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -40);
 
   // Log values for debugging
   //console.log("Mouse Down At:", track.dataset.mouseDownAt);

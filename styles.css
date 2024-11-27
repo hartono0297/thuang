@@ -537,51 +537,32 @@ h1, h2, h3, h4 {
 }
 
 /* Modal styles */
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: scroll; /* Prevent scrolling when modal is open */
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center; /* Center the modal content horizontally */
-    align-items: center; /* Center the modal content vertically */
-    transition: opacity 0.25s ease; /* Smooth transition for fade-in */
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* Center the modal content */
 .modal-content {
-    max-width: 100%;
-    max-height: 80%; /* Set max height for scrolling */
-    transition: transform 0.25s ease; /* Animation for zooming */
-    cursor: zoom-in; /* Indicate zoom capability */
-    position: relative; /* Allow positioning for dragging */
-    overflow: hidden; /* Prevent default overflow */
-}
-
-/* Scrollable when zoomed */
-.modal-content.scrollable {
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 90vh; /* Ensure it does not overflow the viewport */
-}
-
-/* Zoom effect */
-.modal-content.zoom {
-    transform: scale(2); /* Scale the image to 2x when zoomed */
-    cursor: zoom-out; /* Change cursor to zoom out when zoomed */
-}
-
-body.modal-open {
-    overflow: hidden; /* Disable scrolling on body when modal is open */
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
 }
 
 .close {
     position: absolute;
-    top: 20px;
+    top: 70px;
     right: 35px;
     color: #fff;
     font-size: 40px;
@@ -595,6 +576,68 @@ body.modal-open {
     cursor: pointer;
 }
 
+/* Gallery inside the modal */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Gallery image styling */
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures images cover the space without distortion */
+    aspect-ratio: 16 / 9;  /* Set the desired aspect ratio, e.g., 16:9 */
+    margin-bottom: 10px;  /* Space between images */
+}
+
+
+.gallery img.zoomed {
+    transform: scale(1.5);  /* Zoom effect */
+}
+
+/* Zoomed image styles */
+.zoomed-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.zoomed-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Ensures the image retains its aspect ratio */
+}
+
+/* Zoomed Image Modal */
+.zoomed-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);  /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.zoomed-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;  /* Prevent stretching */
+    cursor: pointer;
+}
 /* Footer Section */
 .footer {
     font-family: 'Montserrat', sans-serif !important;
