@@ -161,9 +161,9 @@ document.getElementById("scrollRight").addEventListener("click", function () {
  
  // Image data for modal galleries
  const galleries = {
-     1: ["Images/gambar/img1/img1.1.jpg", "Images/gambar/img1/img1.2.jpg", "Images/gambar/img1/img1.3.jpg", "Images/gambar/img1/img1.4.jpg", "Images/gambar/img1/img1.5.jpg", "Images/gambar/img1/img1.6.jpg"],
-     2: ["images/img2.1.jpg", "images/img2.2.jpg", "images/img2.3.jpg", "images/img2.4.jpg", "images/img2.5.jpg", "images/img2.6.jpg"],
-     3: ["images/img3.1.jpg", "images/img3.2.jpg", "images/img3.3.jpg", "images/img3.4.jpg", "images/img3.5.jpg", "images/img3.6.jpg"]
+     1: ["Images/gambar/img1/img1.1.jpg", "Images/gambar/img1/img1.2.jpg", "Images/gambar/img1/img1.3.jpg", "Images/gambar/img1/img1.4.jpg", "Images/gambar/img1/img1.5.jpg", "Images/gambar/img1/img1.6.jpg","Images/gambar/img1/img1.7.jpg"],
+     2: ["Images/coming_soon.png", "Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png"],
+     3: ["Images/coming_soon.png", "Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png"]
  };
  
  // Open modal and show gallery when image is clicked
@@ -192,11 +192,12 @@ document.getElementById("scrollRight").addEventListener("click", function () {
              zoomImage(imgElement.src);
          });
      });
- 
+     
      // Show the modal
      modal.style.display = 'flex';
+   
  }
- 
+
  // Zoom functionality when an image is clicked
 // Function to zoom in the image and show the modal
 // Hide the zoomed modal on page load
@@ -266,7 +267,7 @@ window.onmousemove = e => {
 
   const percentage = (mouseDelta / maxDelta) * -100;
   const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
-  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -40);
+  const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
 
   // Log values for debugging
   //console.log("Mouse Down At:", track.dataset.mouseDownAt);
