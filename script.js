@@ -158,6 +158,8 @@ document.getElementById("scrollRight").addEventListener("click", function () {
  const modalGallery = document.getElementById('modal-gallery');
  const zoomedModal = document.getElementById('zoomed-modal');
  const zoomedImage = document.getElementById('zoomed-image');
+ const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
  
  // Image data for modal galleries
  const galleries = {
@@ -165,6 +167,10 @@ document.getElementById("scrollRight").addEventListener("click", function () {
      2: ["Images/coming_soon.png", "Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png"],
      3: ["Images/coming_soon.png", "Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png","Images/coming_soon.png"]
  };
+
+ // Variables to track the current gallery and image
+let currentGallery = [];
+let currentIndex = 0;
  
  // Open modal and show gallery when image is clicked
  carouselItems.forEach(item => {
@@ -178,28 +184,31 @@ document.getElementById("scrollRight").addEventListener("click", function () {
      // Clear the current gallery
      modalGallery.innerHTML = '';
      
-     // Get the gallery images for the clicked image
-     const images = galleries[id];
-     
-     images.forEach(imgSrc => {
-         const imgElement = document.createElement('img');
-         imgElement.src = imgSrc;
-         imgElement.alt = 'Gallery Image';
-         modalGallery.appendChild(imgElement);
-         
-         // Add click event to zoom in
-         imgElement.addEventListener('click', function() {
-             zoomImage(imgElement.src);
-         });
-     });
+     // Load the gallery images for the selected carousel-item
+    currentGallery = galleries[id];
+
+    currentGallery.forEach(imgSrc => {
+        const imgElement = document.createElement('img');
+        imgElement.src = imgSrc;
+        imgElement.alt = 'Gallery Image';
+        modalGallery.appendChild(imgElement);
+
+        // Add click event to zoom in
+        imgElement.addEventListener('click', function() {
+            zoomImage(imgElement.src);
+        });
+    });
      
      // Show the modal
      modal.style.display = 'flex';
    
  }
+ 
+ // Close the modal when the close button is clicked
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
 
- // Zoom functionality when an image is clicked
-// Function to zoom in the image and show the modal
 // Hide the zoomed modal on page load
 window.onload = function() {
     const zoomedModal = document.getElementById('zoomed-modal');
@@ -222,11 +231,27 @@ document.getElementById('zoomed-modal').addEventListener('click', function() {
 });
 
 
- // Close the zoomed modal when clicked
- zoomedModal.addEventListener('click', () => {
-     zoomedModal.style.display = 'none';
- });
- 
+// Close the zoomed modal when clicking outside the image
+zoomedModal.addEventListener('click', function(e) {
+    if (e.target === zoomedModal) {
+        this.style.display = 'none'; // Hide the modal
+    }
+});
+
+// Handle Next Button Click
+nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent the event from bubbling up to the modal
+    currentIndex = (currentIndex + 1) % currentGallery.length; // Loop to the start
+    zoomedImage.src = currentGallery[currentIndex];
+});
+
+// Handle Previous Button Click
+prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent the event from bubbling up to the modal
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; // Loop to the end
+    zoomedImage.src = currentGallery[currentIndex];
+});
+
  // Close the modal
  closeBtn.addEventListener('click', () => {
      modal.style.display = 'none';

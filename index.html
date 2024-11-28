@@ -1,254 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Thuang Architect</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="icon"
-      href="Images/Logo/Logo Export-35.png"
-      type="image/x-icon"
-    />
-  </head>
 
-  <body>
-    <nav class="navbar">
-      <div class="logo">
-        <a href="#home">
-          <img src="Images/Logo/Logo24white.png" alt="Brand Logo" />
-        </a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Projects</a></li>
-        <li><a href="#aboutus">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Thuang Architect</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="Images/Logo/Logo Export-35.png" type="image/x-icon" />
+</head>
 
-    <section id="home" class="content">
-      <h1>THUANG ARCHITECT</h1>
-      <p>by Valentine Christella.</p>
-    </section>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#home">
+        <img src="Images/Logo/Logo24white.png" alt="Brand Logo" />
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Projects</a></li>
+      <li><a href="#aboutus">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
-    <!-- Portfolio Section -->
-    <section id="services" class="portfolio">
-      <!-- Quote at the top -->
-      <div class="quote">
-        <h2>Projects</h2>
-      </div>
-      <!-- Left Scroll Button -->
-      <button class="scroll-button left" id="scrollLeft">‹</button>
+  <section id="home" class="content">
+    <h1>THUANG ARCHITECT</h1>
+    <p>by Valentine Christella.</p>
+  </section>
 
-      <!-- Scrollable Portfolio Container -->
-      <div class="portfolio-container" id="portfolioContainer">
-        <div
-          class="portfolio-container-inner"
-          id="portfolioContainerInner"
-          data-mouse-down-at="0"
-          data-prev-percentage="0"
-        >
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/toilet-img-large.jpg"
-            data-id="1"
-          >
-            <img
-              src="Images/gambar/img1/img1.6.jpg"
-              alt="Minimalism"
-              draggable="false"
-            />
-            <h3>The Minimalism</h3>
-            <p>
-              Elegant interiors with a focus on minimalism and natural light.
-            </p>
-          </div>
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/3A.jpg"
-            data-id="2"
-          >
-            <img
-              src="Images/Logo/Logo Export-32.png"
-              alt="Portfolio 2"
-              draggable="false"
-            />
-            <h3>Coming Soon</h3>
-            <p>Coming Soon.</p>
-          </div>
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/11.jpg"
-            data-id="3"
-          >
-            <img
-              src="Images/Logo/Logo Export-32.png"
-              alt="Portfolio 3"
-              draggable="false"
-            />
-            <h3>Coming Soon</h3>
-            <p>Coming Soon.</p>
-          </div>
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/8.jpg"
-          >
-            <img
-              src="Images/Logo/Logo Export-32.png"
-              alt="Portfolio 4"
-              draggable="false"
-            />
-            <h3>Coming Soon</h3>
-            <p>Coming Soon.</p>
-          </div>
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/12A.jpg"
-          >
-            <img
-              src="Images/Logo/Logo Export-32.png"
-              alt="Portfolio 5"
-              draggable="false"
-            />
-            <h3>Coming Soon</h3>
-            <p>Coming Soon.</p>
-          </div>
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/12A.jpg"
-          >
-            <img
-              src="Images/Logo/Logo Export-32.png"
-              alt="Portfolio 6"
-              draggable="false"
-            />
-            <h3>Coming Soon</h3>
-            <p>Coming Soon.</p>
-          </div>
-          <div
-            class="portfolio-item carousel-item"
-            data-large-img="Images/gambar-large/12A.jpg"
-          >
-            <img
-              src="Images/Logo/Logo Export-32.png"
-              alt="Portfolio 7"
-              draggable="false"
-            />
-            <h3>Coming Soon</h3>
-            <p>Coming Soon.</p>
-          </div>
-        </div>
-      </div>
+  <!-- Portfolio Section -->
+  <section id="services" class="portfolio">
+    <!-- Quote at the top -->
+    <div class="quote">
+      <h2>Projects</h2>
+    </div>
+    <!-- Left Scroll Button -->
+    <button class="scroll-button left" id="scrollLeft">‹</button>
 
-      <!-- Right Scroll Button -->
-      <button class="scroll-button right" id="scrollRight">›</button>
-
-      <!-- Modal -->
-      <div id="image-modal" class="modal">
-        <span class="close">&times;</span>
-        <div class="modal-content">
-          <div id="modal-gallery" class="gallery">
-            <!-- Gallery images for the clicked image will go here -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Zoomed Image Modal (initially hidden) -->
-      <div id="zoomed-modal" class="zoomed-modal">
-        <img src="" alt="Zoomed Image" id="zoomed-image" />
-      </div>
-    </section>
-    <!-- about us-->
-    <section id="aboutus" class="about-us">
-      <div class="about-container">
-        <div class="about-content">
-          <h2>About Us</h2>
+    <!-- Scrollable Portfolio Container -->
+    <div class="portfolio-container" id="portfolioContainer">
+      <div class="portfolio-container-inner" id="portfolioContainerInner" data-mouse-down-at="0"
+        data-prev-percentage="0">
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/toilet-img-large.jpg" data-id="1">
+          <img src="Images/gambar/img1/img1.6.jpg" alt="Minimalism" draggable="false" />
+          <h3>The Minimalism</h3>
           <p>
-            We are a modern architecture firm specializing in creating
-            innovative and functional spaces. Our designs blend simplicity with
-            elegance, focusing on client needs and sustainability.
+            Elegant interiors with a focus on minimalism and natural light.
           </p>
         </div>
-        <div class="about-image">
-          <div class="hover14">
-            <figure>
-              <img
-                src="Images/Logo/Logo Export-26.png"
-                alt="Architecture Design"
-              />
-            </figure>
-          </div>
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/3A.jpg" data-id="2">
+          <img src="Images/Logo/Logo Export-32.png" alt="Portfolio 2" draggable="false" />
+          <h3>Coming Soon</h3>
+          <p>Coming Soon.</p>
+        </div>
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/11.jpg" data-id="3">
+          <img src="Images/Logo/Logo Export-32.png" alt="Portfolio 3" draggable="false" />
+          <h3>Coming Soon</h3>
+          <p>Coming Soon.</p>
+        </div>
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/8.jpg">
+          <img src="Images/Logo/Logo Export-32.png" alt="Portfolio 4" draggable="false" />
+          <h3>Coming Soon</h3>
+          <p>Coming Soon.</p>
+        </div>
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/12A.jpg">
+          <img src="Images/Logo/Logo Export-32.png" alt="Portfolio 5" draggable="false" />
+          <h3>Coming Soon</h3>
+          <p>Coming Soon.</p>
+        </div>
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/12A.jpg">
+          <img src="Images/Logo/Logo Export-32.png" alt="Portfolio 6" draggable="false" />
+          <h3>Coming Soon</h3>
+          <p>Coming Soon.</p>
+        </div>
+        <div class="portfolio-item carousel-item" data-large-img="Images/gambar-large/12A.jpg">
+          <img src="Images/Logo/Logo Export-32.png" alt="Portfolio 7" draggable="false" />
+          <h3>Coming Soon</h3>
+          <p>Coming Soon.</p>
         </div>
       </div>
-    </section>
-    <!-- Footer Section -->
-    <footer id="contact" class="footer">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>About Us</h3>
-          <p>
-            We are an architecture firm specializing in modern and interior
-            designs that blend beauty with functionality.
-          </p>
-        </div>
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <p>Medan City, Indonesia</p>
-          <p>Email: christella@thuang.com</p>
-          <p>Phone: +62 853 5982 0664</p>
-        </div>
-        <div class="footer-column">
-          <h3>Stay In Touch</h3>
-          <div class="social-icons">
-            <a
-              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="Images/square-facebook-brands-solid.svg"
-                alt="Facebook"
-                class="icon"
-              />
-            </a>
+    </div>
 
-            <a
-              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="Images/instagram-brands-solid.svg"
-                alt="Instagram"
-                class="icon"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag=="
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="Images/linkedin-brands-solid.svg"
-                alt="LinkedIn"
-                class="icon"
-              />
-            </a>
-          </div>
+    <!-- Right Scroll Button -->
+    <button class="scroll-button right" id="scrollRight">›</button>
+
+    <!-- Modal -->
+    <div id="image-modal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <div id="modal-gallery" class="gallery">
+          <!-- Gallery images for the clicked image will go here -->
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Thuang Architect. All Rights Reserved.</p>
-      </div>
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- Zoomed Image Modal (initially hidden) -->
+    <div id="zoomed-modal" class="zoomed-modal">
+      <button id="prev-btn" class="nav-btn">❮</button> <!-- Previous Button -->
+      <img src="" alt="Zoomed Image" id="zoomed-image" />
+      <button id="next-btn" class="nav-btn">❯</button> <!-- Next Button -->
+    </div>
+  </section>
+  <!-- about us-->
+  <section id="aboutus" class="about-us">
+    <div class="about-container">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          We are a modern architecture firm specializing in creating
+          innovative and functional spaces. Our designs blend simplicity with
+          elegance, focusing on client needs and sustainability.
+        </p>
+      </div>
+      <div class="about-image">
+        <div class="hover14">
+          <figure>
+            <img src="Images/Logo/Logo Export-26.png" alt="Architecture Design" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer Section -->
+  <footer id="contact" class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <p>
+          We are an architecture firm specializing in modern and interior
+          designs that blend beauty with functionality.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>Medan City, Indonesia</p>
+        <p>Email: christella@thuang.com</p>
+        <p>Phone: +62 853 5982 0664</p>
+      </div>
+      <div class="footer-column">
+        <h3>Stay In Touch</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag==" target="_blank"
+            rel="noopener noreferrer">
+            <img src="Images/square-facebook-brands-solid.svg" alt="Facebook" class="icon" />
+          </a>
+
+          <a href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag==" target="_blank"
+            rel="noopener noreferrer">
+            <img src="Images/instagram-brands-solid.svg" alt="Instagram" class="icon" />
+          </a>
+          <a href="https://www.instagram.com/thuangarchitect?igsh=MXVlNGJhYWEwN2E3ag==" target="_blank"
+            rel="noopener noreferrer">
+            <img src="Images/linkedin-brands-solid.svg" alt="LinkedIn" class="icon" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Thuang Architect. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
