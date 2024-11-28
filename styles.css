@@ -181,7 +181,7 @@ a {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.8); /* Darker for mobile view */
         position: absolute;
-        top: 89px;
+        top: 65px;
         left: 0;
         padding: 0;
         text-align: center;
@@ -196,7 +196,7 @@ a {
     .nav-links.shrink {
         padding: 1rem 0;
         height: 240px; /* Adjust this value based on the height when shrunk */
-        top: 66px;
+        top: 55px;
     }
 
     .navbar.shrink {
@@ -204,6 +204,20 @@ a {
         /*background-color: rgba(174, 140, 104, 0.7); /* Example of a translucent background */
         /*border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Adjusted border for shrink effect */
     }
+
+    /* Default state: disable pointer events */
+.navbar ul {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Open state: enable pointer events and make visible */
+.navbar ul.open {
+    pointer-events: auto;
+    opacity: 1;
+}
+
     
     /* Change color of nav links when navbar is shrunk */
     .navbar.shrink .nav-links a {
