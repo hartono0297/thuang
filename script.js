@@ -163,9 +163,12 @@ const nextBtn = document.getElementById('next-btn');
 
 // Image data for modal galleries
 const galleries = {
-    1: ["Images/gambar/img1/img1.1.jpg", "Images/gambar/img1/img1.2.jpg", "Images/gambar/img1/img1.3.jpg", "Images/gambar/img1/img1.4.jpg", "Images/gambar/img1/img1.5.jpg", "Images/gambar/img1/img1.6.jpg", "Images/gambar/img1/img1.7.jpg"],
-    2: ["Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png"],
-    3: ["Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png", "Images/coming_soon.png"]
+    1: ["Images/gambar/img1/img1.1.jpg", "Images/gambar/img1/img1.2.jpg", "Images/gambar/img1/img1.3.jpg", "Images/gambar/img1/img1.4.jpg", "Images/gambar/img1/img1.5.jpg", "Images/gambar/img1/img1.6.jpg", "Images/gambar/img1/img1.7.jpg", "Images/gambar/img1/img1.8.jpg", "Images/gambar/img1/img1.9.jpg"],
+    2: ["Images/gambar/sutomo/1.1.jpg","Images/gambar/sutomo/1.2.jpg","Images/gambar/sutomo/1.jpg","Images/gambar/sutomo/2.jpg","Images/gambar/sutomo/4.jpg","Images/gambar/sutomo/5.jpg","Images/gambar/sutomo/6.jpg","Images/gambar/sutomo/7.jpg","Images/gambar/sutomo/8a.jpg","Images/gambar/sutomo/9.jpg","Images/gambar/sutomo/11.jpg","Images/gambar/sutomo/12.jpg","Images/gambar/sutomo/13.jpg"],
+    3: ["Images/gambar/setia_jadi/1.jpg","Images/gambar/setia_jadi/2.jpg","Images/gambar/setia_jadi/3.jpg","Images/gambar/setia_jadi/4.jpg"],
+    4: ["Images/gambar/maldives/1.jpg","Images/gambar/maldives/2.jpg","Images/gambar/maldives/3.jpg","Images/gambar/maldives/4.jpg","Images/gambar/maldives/5.jpg","Images/gambar/maldives/6.jpg"],
+    5: ["Images/gambar/g_rukun/1.jpg","Images/gambar/g_rukun/2.jpg","Images/gambar/g_rukun/3.jpg","Images/gambar/g_rukun/4.jpg","Images/gambar/g_rukun/5.jpg","Images/gambar/g_rukun/6.jpg"],
+    6: ["Images/gambar/CBD/1A.jpg","Images/gambar/CBD/3.jpg","Images/gambar/CBD/5.jpg"]
 };
 
 // Variables to track the current gallery and image
@@ -198,6 +201,8 @@ function showGallery(id) {
             zoomImage(imgElement.src);
         });
     });
+    // Disable background scrolling
+    document.body.classList.add('no-scroll');
 
     // Show the modal
     modal.style.display = 'flex';
@@ -207,6 +212,8 @@ function showGallery(id) {
 // Close the modal when the close button is clicked
 closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
+    // Enable background scrolling
+    document.body.classList.remove('no-scroll');
 });
 
 // Hide the zoomed modal on page load
@@ -261,6 +268,7 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
         modal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
     }
 });
 
